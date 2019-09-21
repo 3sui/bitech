@@ -19,6 +19,14 @@ export default {
     NavBar,
     Footer,
     BackTop
+  },
+  methods: {
+    setTitle() {
+      document.title = this.$route.meta.title
+    }
+  },
+  mounted(){
+    this.setTitle()
   }
 };
 </script>

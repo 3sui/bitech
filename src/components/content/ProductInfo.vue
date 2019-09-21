@@ -1,41 +1,24 @@
-<!-- 产品与解决方案组件 -->
+<!--  -->
 <template>
   <div>
-    <div class="navbar">
-      <div
-        class="navbar-item"
-        v-for="(item,index) in productInfo"
-        :key="index"
-        @click="tabClick(index,item.info.length)"
-        :class="{active: current === index}"
-      >
-        <i :class="item.icon"></i>
-        <p>{{item.title + ' (' + item.info.length + ')'}}</p>
-        <img src="~@/assets/img/icon_sj_03.png" :class="{active: current === index}" />
+    <div
+      class="product-info"
+      v-for="(item,index) in productInfo[current].info"
+      :key="index"
+      :class="{bgcfb: index % 2 !== 0}"
+      :id="item.url"
+    >
+      <div class="product-info-content">
+        <h3>{{'0'+(index+1)+'.'+item.name}}</h3>
+        <div class="block"></div>
+        <p>{{item.title}}</p>
+        <img :src="require('../../assets/img/product/' + item.url)" alt />
       </div>
     </div>
-    <div class="navbar-content">
-      <div class="navbar-info">
-        <a
-          :href="'#'+ item.url"
-          v-for="(item,index) in productInfo[current].info"
-          :key="index"
-          class="navbar-info-item"
-        >
-          <i :class="item.img"></i>
-          <div>
-            <p class="navbar-info-item-title">{{item.name}}</p>
-            <p class="navbar-info-item-msg" :title="item.title">{{item.msg}}</p>
-          </div>
-        </a>
-      </div>
-    </div>
-    
   </div>
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -68,7 +51,7 @@ export default {
               title:
                 "基于大数据服务能力，为园区的招商人员提供商机引进的辅助工具，通过产业图谱的构建，按行业、产业上下游属性扫描优质企业，提供企业排行榜、商机推荐、企业基本信息披露等实用功能，使招商人员能快速找到潜在客户并对商机进行精准把控。",
               msg: "基于大数据服务能力，为园区的招商人员提供商机引进的辅助工..",
-              url: 'product3.png'
+              url: "product3.png"
             },
             {
               img: "el-icon-s-tools",
@@ -76,7 +59,7 @@ export default {
               title:
                 "与“资产管理“模块紧密衔接，为园区的招商人员提供便捷的房源实时动态查询和预订工具，通过直观图的形式提供房源锁定/可租状态、计费面积、参考价格、入驻企业等信息，实现动态租控，即将到期提前告知，使招商人员能够及时响应客户需求，并支持在线预订/锁定意向房源，避免资源重复占用，效减少空置率。",
               msg: "与“资产管理“模块紧密衔接，为园区的招商人员提供便捷的房....",
-              url: 'product4.png'
+              url: "product4.png"
             },
             {
               img: "el-icon-delete",
@@ -84,7 +67,7 @@ export default {
               title:
                 "基于“招商漏斗”实现从招商线索发掘、商机集中报备、商机优先级排序到洽谈跟踪、进而签约落地全过程中的客户需求、意向房源、洽谈进度等信息管理，支持在线查看项目跟进记录，实现轻松复盘，为招商人员岗位变动的平滑交接提供保障，避免因项目周期过长而导致的信息流失，并体现客观的招商绩效。",
               msg: "基于“招商漏斗”实现从招商线索发掘、商机集中报备、商机优..",
-              url: 'product5.png'
+              url: "product5.png"
             },
             {
               img: "el-icon-delete",
@@ -93,7 +76,7 @@ export default {
                 "为招商代办服务人员提供材料生成和节点管理工具，以入驻企业需求为核心，实现代办全流程实时提醒，确保待办业务处理高效、准时、无一遗漏。提供标准化企业章程生成功能，导出即可使用，缩短工作周期，减少人力投入，办理结束后的企业数据导入企业库，可作为企业库的数据来源之一。",
               msg:
                 "为招商代办服务人员提供材料生成和节点管理工具，以入驻企业....",
-                url: 'product6.png'
+              url: "product6.png"
             }
           ]
         },
@@ -108,7 +91,7 @@ export default {
                 "BiPark构建了完整的企业信息标签体系，涵盖上百个企业信息字段，为园区提供标准化客户管理模板。基于动态模型的数据更新机制，实现“一企一档”，避免各部门客户数据碎片化。支持客户的分配，确保锁定唯一客服专员，并支持各类自定义报表生成及导出功能，满足多维度客户统计需求。",
               msg:
                 "BiPark构建了完整的企业信息标签体系，涵盖上百个企业信息字....",
-                url: 'product7.png'
+              url: "product7.png"
             },
             {
               img: "el-icon-delete",
@@ -116,7 +99,7 @@ export default {
               title:
                 "支持办公、商业、厂房、仓库、宿舍等多元空间产品的经营模式，实现地块、项目、楼宇、楼层、房间、工位六级精细化空间信息管理，动态呈现资产当前租售状态和入驻客户信息以及历史租售情况，通过房态共享，实现跨区域资源统筹，有效降低资产空置率，加速资产去化。",
               msg: "支持办公、商业、厂房、仓库、宿舍等多元空间产品的经营模式..",
-              url: 'product8.png'
+              url: "product8.png"
             },
             {
               img: "el-icon-delete",
@@ -125,7 +108,7 @@ export default {
                 "可配置的合同模板，实现合同签约标准化，支持订租、租赁、期房、现房、租转售等多种经营形态。以“账单”为核心，支持水电费导入、临时费用添加，实现所有费用“一口出”。通过一键出账，将线上账单推送给企业，根据应实收账款自动进行欠费提醒。",
               msg:
                 "可配置的合同模板，实现合同签约标准化，支持订租、租赁、期....",
-                url: 'product9.png'
+              url: "product9.png"
             },
             {
               img: "el-icon-s-tools",
@@ -134,7 +117,7 @@ export default {
                 "依据合同付费信息及费用参数设置，实现智能计费，内置多种单价算法，支持不同付费期限和付费方式下的计费，可满足混合模式下多元空间对合同管理和账务计算的需求，避免错账、漏账。",
               msg:
                 "依据合同付费信息及费用参数设置，实现智能计费，内置多种单....",
-                url: 'product10.png'
+              url: "product10.png"
             },
             {
               img: "el-icon-delete",
@@ -143,7 +126,7 @@ export default {
                 "实现业财一体化，确保资产与合同、企业、账款等信息实时关联。到账后快速调取客户所有应收账单，根据到账费用进行自动填账，无需人工核算每笔到账费用，确保100%精准对账。",
               msg:
                 "实现业财一体化，确保资产与合同、企业、账款等信息实时关联....",
-                url: 'product11.png'
+              url: "product11.png"
             },
             {
               img: "el-icon-s-tools",
@@ -152,7 +135,7 @@ export default {
                 "便捷的开票登记，支持普通发票、专用发票两种发票类型。对接主流税控机，建立开票池，实现多张发票同时、自动开具。",
               msg:
                 "便捷的开票登记，支持普通发票、专用发票两种发票类型。对接....",
-                url: 'product12.png'
+              url: "product12.png"
             },
             {
               img: "el-icon-delete",
@@ -161,7 +144,7 @@ export default {
                 "主要适用于有基建、工程项目管理业务职能的园区，面向基建及工程部门。实现对工程项目从立项、工期安排、进度跟踪、竣工验收的全生命周期管理。提供对工程项目相关内容进行集中管理的功能，如项目变更历史、相关图档、相关合同、评估报告、供应商管理、分批次付费管理等，构筑完整的工程项目管理功能。",
               msg:
                 "主要适用于有基建、工程项目管理业务职能的园区，面向基建及......",
-                url: 'product13.png'
+              url: "product13.png"
             },
             {
               img: "el-icon-delete",
@@ -170,7 +153,7 @@ export default {
                 "适用于以一级土地开发为核心业务的开发区/高新区管委会及大型产业区。对签约项目在落地过程中的各项事项进行管理，可查看重大项目在推进过程中遇到的问题和需要协调的事项，能够根据实际情况作出及时的反馈，关联项目信息，提供历史资料、立项资料、审批资料的调阅，并可对推进事项进行流程化管理（项目立项、项目审核、项目验资、专项审批、工程建设、履约跟踪、竣工投产等），定期生成重大项目推进报告，促进跨部门协同和统筹，从而确保项目快速顺利推进。",
               msg:
                 "适用于以一级土地开发为核心业务的开发区/高新区管委会及大......",
-                url: 'product14.png'
+              url: "product14.png"
             }
           ]
         },
@@ -183,8 +166,9 @@ export default {
               name: "政策服务",
               title:
                 "提供政策的智能匹配和分步解读功能，全面整合国家/省市区的政策信息，企业和人才通过一个平台即可根据政策级别、发布部门、扶持方向、扶持力度、扶持行业等维度匹配出所需的政策，并可快速了解政策的扶持力度、申报条件、申报程序、提交材料、受理服务等关键信息，有效提升政策的知晓率和覆盖面。",
-              msg: "提供政策的智能匹配和分步解读功能，全面整合国家/省市区的....",
-              url: 'product15.png'
+              msg:
+                "提供政策的智能匹配和分步解读功能，全面整合国家/省市区的....",
+              url: "product15.png"
             },
             {
               img: "el-icon-delete",
@@ -193,7 +177,7 @@ export default {
                 "适用于有自主审批事项的园区（如扶持政策、扶持基金等）。建立项目线上申报、受理、评估、审批、跟踪、验收的全流程化监管机制，提高项目申报受理审批的工作效率。实现多主体、多条线、多部门的在线联动审批，有效提高项目信息交换与流转效率。通过对项目资金拨款、跟踪、审计等精细化管理，有效保障项目资金的落实及应用情况。/省市区的政策信息，企业和人才通过一个平台即可根据政策级别、发布部门、扶持方向、扶持力度、扶持行业等维度匹配出所需的政策，并可快速了解政策的扶持力度、申报条件、申报程序、提交材料、受理服务等关键信息，有效提升政策的知晓率和覆盖面。",
               msg:
                 "适用于有自主审批事项的园区（如扶持政策、扶持基金等）。建....",
-                url: 'product16.png'
+              url: "product16.png"
             },
             {
               img: "el-icon-s-tools",
@@ -202,7 +186,7 @@ export default {
                 "提供公共资源的在线查询与预订，包括工位、会议室、广告位、场地以及停车位的预订。可避免园区公共资源预订冲突，提高公共资源的使用率。并支持电商平台的接入，实现配套资源和服务预约购买、在线缴费（如会议室设备、办公家具等。",
               msg:
                 "提供公共资源的在线查询与预订，包括工位、会议室、广告位、....",
-                url: 'product17.png'
+              url: "product17.png"
             },
             {
               img: "el-icon-s-tools",
@@ -211,7 +195,7 @@ export default {
                 "以图文结合的方式展示活动的内容、时间、地点等相关信息，用户可通过活动标签来进行视图切换，有兴趣参与活动的用户可在线报名，用户参加具体活动时，可在线进行二维码签到，增加园区活动的曝光量，扩大活动的参与量，并对活动成果进行管理，对参会人员进行回访或跟踪。",
               msg:
                 "以图文结合的方式展示活动的内容、时间、地点等相关信息，用....",
-                url: 'product18.png'
+              url: "product18.png"
             },
             {
               img: "el-icon-delete",
@@ -220,7 +204,7 @@ export default {
                 "提供便捷的线上物业报修功能，针对存在问题的物业设施，企业和个人用户可以拍照上传，向园区物业部门发起报修申请，维修人员通过微信小程序在线抢单，维修完成后企业或个人对服务进行在线评价。",
               msg:
                 "提供便捷的线上物业报修功能，针对存在问题的物业设施，企业....",
-                url: 'product19.png'
+              url: "product19.png"
             },
             {
               img: "el-icon-s-tools",
@@ -228,7 +212,7 @@ export default {
               title:
                 "取代传统的“付款通知单”，同步“资产管理”模块的出账信息，定期推送企业电子账单，包括租金、物业费、水电费和其他收费事项，支持历史账单的查询，方便企业用户明确应缴费用的构成明细以及数额等信息。",
               msg: "取代传统的“付款通知单”，同步“资产管理”模块的出账信息....",
-              url: 'product20.png'
+              url: "product20.png"
             },
             {
               img: "el-icon-delete",
@@ -237,7 +221,7 @@ export default {
                 "建立以企业、人才为核心服务对象，集聚政府服务资源、园区服务资源和第三方服务资源，提供在线展示、查询与咨询，逐步实现生产性服务、生活性服务相融合的综合服务集市，涵盖创业投资、职业发展、创新交流、科技金融、生活配套等服务功能。",
               msg:
                 "建立以企业、人才为核心服务对象，集聚政府服务资源、园区服......",
-                url: 'product21.png'
+              url: "product21.png"
             },
             {
               img: "el-icon-delete",
@@ -246,7 +230,7 @@ export default {
                 "适用于设有人才公寓、公租房和租赁住房的园区。提供统一的租赁服务门户，建立透明化的轮候机制，实现在线申请、看房、预订、签约等闭环式服务体系的构建。全面统筹区域内多个运营主体房源，实现房源信息的动态更新与展示。建立申请、审批、轮候、运营一体化的业务运营机制，实现房源、客户、合同、财务的联动管理，并可结合物联网实现公寓管理与运营自动化，大力降低人才公寓管理及运营成本。",
               msg:
                 "适用于设有人才公寓、公租房和租赁住房的园区。提供统一的租......",
-                url: 'product22.png'
+              url: "product22.png"
             },
             {
               img: "el-icon-s-tools",
@@ -255,7 +239,7 @@ export default {
                 "适用于孵化器、众创空间等致力于创新培育的园区。实现创业项目的实时在线路演，打破空间与时间限制，为创业者创造更多机会，跨地域对接投资人、促进投融资项目落地，同时延伸线下活动，为创客提供多元化服务；基于大赛活动的社交特征，实现大赛活动会前、会中、会后全流程管理，沉淀价值数据。",
               msg:
                 "适用于孵化器、众创空间等致力于创新培育的园区。实现创业项......",
-                url: 'product23.png'
+              url: "product23.png"
             },
             {
               img: "el-icon-delete",
@@ -263,7 +247,7 @@ export default {
               title:
                 "强化企企互动，促进园区内上下游企业的交流对接，以“线下活动与服务”加上“线上社交圈子”，无缝地将企业高管、白领、HR及服务主体（商户、场馆、机构等）对接在一起，围绕产业集聚、高管社交、兴趣同盟、技能出售和生活交友等话题，营造园区内部的生态氛围。",
               msg: "强化企企互动，促进园区内上下游企业的交流对接，以“线下活..",
-              url: 'product24.png'
+              url: "product24.png"
             },
             {
               img: "el-icon-s-tools",
@@ -271,7 +255,7 @@ export default {
               title:
                 "适用于关注增值服务可持续运营的园区。园区电商围绕企业和人才两个维度的诉求，构建5公里服务圈，突出区域需求特征，弥补资源短板，助力产城社区的构建。平台将采用SIMR架构，支持园区商户不断接入，为园区建立统一响应机制，并实现个性化交易模式和优惠策略的设定，对订单、会员、积分、支付、结算等进行统筹管理。",
               msg: "适用于关注增值服务可持续运营的园区。园区电商围绕企业和人..",
-              url: 'product25.png'
+              url: "product25.png"
             },
             {
               img: "el-icon-delete",
@@ -279,7 +263,7 @@ export default {
               title:
                 "面向园区客服部门或服务平台运营团队。提供一门式服务集中受理、服务工单派发、第三方服务监理、反馈的全流程控制。内置企业走访模板，规范走访过程，全面掌握企业动态信息。实现服务绩效管理，加强时效控制，提升企业满意度。",
               msg: "面向园区客服部门或服务平台运营团队。提供一门式服务集中受..",
-              url: 'product26.png'
+              url: "product26.png"
             }
           ]
         },
@@ -293,7 +277,7 @@ export default {
               title:
                 "适用于大型产业园、开发区/高新区管委会等。为园区管理层或相关权限人员提供园区全景电子沙盘的可视化呈现，通过大数据的层层钻取，从园区总览（一级）—基地总览（二级）—楼宇总控（三级）—楼层总控（四级）—企业总控（五级），颗粒度逐步细化、层层深入，通过抽丝剥茧的手法将园区全景、企业风貌、服务资源、数据沉淀进行系统化的反映，基于高质量规划图/地图/三维模型的展现形式，使用户快速直观地了解区域全貌。",
               msg: "适用于大型产业园、开发区/高新区管委会等。为园区管理层或..",
-              url: 'product27.png'
+              url: "product27.png"
             },
             {
               img: "el-icon-s-tools",
@@ -302,7 +286,7 @@ export default {
                 "基于数据磁铁实现园区各业务条线数据的沉淀，通过BI数据清洗和重组，提炼关键性园区运营指标数据，以任意维度进行自定义组合，可通过各类直观图表的形式展现，并支持即席报表的导出，实现数据的最大限度利用，挖掘数据的潜在关联和深层价值，以便实现跨部门数据共享，把握园区当前经营状况和发展趋势。",
               msg:
                 "基于数据磁铁实现园区各业务条线数据的沉淀，通过BI数据清洗....",
-                url: 'product28.png'
+              url: "product28.png"
             },
             {
               img: "el-icon-delete",
@@ -311,7 +295,7 @@ export default {
                 "同步企业工商数据、股东、产品、证书、商标、专利、著作权、历史融资等信息，并结合园区招商、租售、服务、孵化、企业数据上报等业务数据，以及政府条线政策扶持、项目申报、产值税收等数据，构建企业360°全息画像，生成企业能力雷达图，洞察企业潜在风险、发展趋势、产业前景等，为精准服务和精准施策提供支撑。",
               msg:
                 "同步企业工商数据、股东、产品、证书、商标、专利、著作权、....",
-                url: 'product29.png'
+              url: "product29.png"
             },
             {
               img: "el-icon-delete",
@@ -320,7 +304,7 @@ export default {
                 "主要适用于有自有资产经营租售业务的园区。销控分析能够以平面图形式展现当前各楼宇、楼层、房间、工位的出租率、收缴率、企业数、建筑面积等租售情况，可通过查看历史变化趋势及时调整房源价格以适应市场的供需关系。",
               msg:
                 "主要适用于有自有资产经营租售业务的园区。销控分析能够以平....",
-                url: 'product30.png'
+              url: "product30.png"
             },
             {
               img: "el-icon-s-tools",
@@ -329,15 +313,16 @@ export default {
                 "适用于提供企业税收扶持的园区。系统支持一键导入国家税务局标准制式表格，即可总览园区企业税收情况；通过多维度统计分析，实现对税种完成情况、产税情况、同比环比完成情况的查看。定期生成企业税收排名，对排名浮动幅度较大的企业进行预警，提醒工作人员重点关注。",
               msg:
                 "适用于提供企业税收扶持的园区。系统支持一键导入国家税务局....",
-                url: 'product31.png'
+              url: "product31.png"
             },
             {
               img: "el-icon-delete",
               name: "经济运行",
               title:
                 "适用于开发区/高新区管委会的经发部门。基于园区经济运行数据的汇总，对三业总收入、工业总产值、财政总收入、招商引资情况、税收统计、固有资产投资情况进行挖掘与分析；以图表形式呈现动态的、精准的汇报数据，定期生成格式化的各类报告，辅助领导进行统筹决策。",
-              msg: "适用于开发区/高新区管委会的经发部门。基于园区经济运行数....",
-              url: 'product32.png'
+              msg:
+                "适用于开发区/高新区管委会的经发部门。基于园区经济运行数....",
+              url: "product32.png"
             }
           ]
         },
@@ -352,7 +337,7 @@ export default {
                 "改变传统办公模式，实现无纸化办公；快速审批，流程高效，随时掌控任务进度；信息传递、多方协同、知识共享，打通内部信息孤岛。",
               msg:
                 "改变传统办公模式，实现无纸化办公；快速审批，流程高效，随....",
-                url: 'product33.png'
+              url: "product33.png"
             },
             {
               img: "el-icon-s-tools",
@@ -360,7 +345,7 @@ export default {
               title:
                 "基于微信企业号打造“移动办公室”，提升工作时效；随时随地发起流程，进度、记录实时查看；即时通讯，在线交互，有效降低沟通成本，信息全局掌握。",
               msg: "基于微信企业号打造“移动办公室”，提升工作时效；随时随地....",
-              url: 'product34.png'
+              url: "product34.png"
             },
             {
               img: "el-icon-s-tools",
@@ -369,7 +354,7 @@ export default {
                 "实现文档数据的获取、沉淀、共享，建立统一规范的流程管理；完善知识库的积累，提升文档的应用价值；创建多维度的文档标签，分级管控，快速查阅。",
               msg:
                 "实现文档数据的获取、沉淀、共享，建立统一规范的流程管理；....",
-                url: 'product35.png'
+              url: "product35.png"
             },
             {
               img: "el-icon-delete",
@@ -378,7 +363,7 @@ export default {
                 "实现合同立项到归档的全生命周期管理，建立标准化流程；建立合同预警机制，有效掌控关键节点，加强进度监控；控制审批时效，留存过程信息，方便用户查询追溯。",
               msg:
                 "实现合同立项到归档的全生命周期管理，建立标准化流程；建立....",
-                url: 'product36.png'
+              url: "product36.png"
             },
             {
               img: "el-icon-s-tools",
@@ -387,7 +372,7 @@ export default {
                 "分解企业年度计划，完成自适应式的预算编制与管控；严格管理每一项预算，协同督办，实现预算的跟踪、汇总、调整；付款过程标准化，按实申领预算资金。",
               msg:
                 "分解企业年度计划，完成自适应式的预算编制与管控；严格管理....",
-                url: 'product37.png'
+              url: "product37.png"
             },
             {
               img: "el-icon-delete",
@@ -396,7 +381,7 @@ export default {
                 "依托协同工作平台，实现领导交办、批件、重大项目等事项的统一跟踪督办；掌控单位内部的工作分配与执行情况，事项提醒标识，全面提升企业执行力；任务详情、进展有据可查，过程透明公开。",
               msg:
                 "依托协同工作平台，实现领导交办、批件、重大项目等事项的统....",
-                url: 'product38.png'
+              url: "product38.png"
             },
             {
               img: "el-icon-s-tools",
@@ -405,7 +390,7 @@ export default {
                 "建立安全、高效、动态的固定资产管理体系；采用RFID技术赋予每个实物唯一认证的“身份标签”，精准掌握出入库动态情况；建立审核跟踪机制，全方位监管和维护所有固定资产。",
               msg:
                 "建立安全、高效、动态的固定资产管理体系；采用RFID技术赋予....",
-                url: 'product39.png'
+              url: "product39.png"
             }
           ]
         },
@@ -420,7 +405,7 @@ export default {
                 "基于多个移动应用平台构建多渠道全流程的招商管理体系；便捷、高效、互动式的商机引流，展示园区实力、塑造品牌形象；建立项目推进机制，确保招商工作高效有序的进行。",
               msg:
                 "基于多个移动应用平台构建多渠道全流程的招商管理体系；便捷....",
-                url: 'product40.png'
+              url: "product40.png"
             },
             {
               img: "el-icon-s-tools",
@@ -428,7 +413,7 @@ export default {
               title:
                 "打造“掌上园企”服务平台，让企业充分享受移动化带来的便捷性；活动分享、快速拍照、一键拨号，随时随地发起各项服务申请；进度实时反馈，确保优质服务，提升企业满意度。",
               msg: "打造“掌上园企”服务平台，让企业充分享受移动化带来的便捷....",
-              url: 'product41.png'
+              url: "product41.png"
             },
             {
               img: "el-icon-s-tools",
@@ -436,7 +421,7 @@ export default {
               title:
                 "基于微信企业号打造“移动办公室”，提升工作时效；随时随地发起流程，进度、记录实时查看；即时通讯，在线交互，有效降低沟通成本，信息全局掌握。",
               msg: "基于微信企业号打造“移动办公室”，提升工作时效；随时随地....",
-              url: 'product42.png'
+              url: "product42.png"
             },
             {
               img: "el-icon-delete",
@@ -444,7 +429,7 @@ export default {
               title:
                 "为创业者打造互联网创业的社交圈子；以“线下的活动与服务”加上“线上的创业圈子”，无缝的将创业者、服务商、合伙人、及其它创业所需的资源对接在一起，打造真正的创业生态圈。",
               msg: "为创业者打造互联网创业的社交圈子；以“线下的活动与服务”....",
-              url: 'product43.png'
+              url: "product43.png"
             },
             {
               img: "el-icon-s-tools",
@@ -453,7 +438,7 @@ export default {
                 "基于移动终端（手机、平板等），将各类运营经济指标数据分析后以各类图表展示；轻量化应用随时联网，在出差交流的过程中，随时随地可了解园区当前经营状况，及各类数据；方便领导对园区经营情况进行控制和指导，辅助决策。",
               msg:
                 "基于移动终端（手机、平板等），将各类运营经济指标数据分析....",
-                url: 'product44.png'
+              url: "product44.png"
             }
           ]
         },
@@ -468,15 +453,16 @@ export default {
                 "概述围绕开发区/高新区/经开区/工业园/经济园区等大型园区在招商引资、重大项目推进落地、园区开发建设、统筹管理与安商稳商服务等方面的核心特征，构建 “引、研、跟、落、管、服”六位一体的综合解决方案。通过科技手段突出区域整体竞争优势，加速内部和周边资源的整合和优化配置，基于模式创新实..",
               msg:
                 "概述围绕开发区/高新区/经开区/工业园/经济园区等大型园区在....",
-                url: 'product45.png'
+              url: "product45.png"
             },
             {
               img: "el-icon-s-tools",
               name: "产业园区",
               title:
                 "以特色化产业服务为核心目标，构建“线上线下联动、台前台后融合”的“一站式”产业链协作公共服务体系。对外，为企业和人才提供便捷、多元的各类服务，促进园区产业资源共享，加强企企合作，促进产业集群的优势互补。对内，建立业财一体化管理机制，实现智能化、精细化资产管理，降低空置率，节约人力成本。",
-              msg: "以特色化产业服务为核心目标，构建“线上线下联动、台前台后....",
-              url: 'product46.png'
+              msg:
+                "以特色化产业服务为核心目标，构建“线上线下联动、台前台后....",
+              url: "product46.png"
             },
             {
               img: "el-icon-delete",
@@ -485,7 +471,7 @@ export default {
                 "充分发挥大学院校的智力优势，建立大学成果库，通过搭建技术转移和线上创新培育平台，将大学、创客、企业、园区、投资人、第三方机构等主体紧密链接，促进多方交流合作，助力大学生创业，加速大学成果实现产业化。并以园区为载体，逐步增强辐射力，实现技术成果、创新创业人才、优质创业企业的并向输出。",
               msg:
                 "充分发挥大学院校的智力优势，建立大学成果库，通过搭建技术....",
-                url: 'product47.png'
+              url: "product47.png"
             },
             {
               img: "el-icon-s-tools",
@@ -493,7 +479,7 @@ export default {
               title:
                 "针对众创空间/孵化器空间面积较少、通常涉及到连锁式运营的特点，平台以轻量化应用为主，可提供SaaS化部署。基于创业孵化+创业导师+科技投资的模式，构建全生命周期的孵化业务管理体系，固化从“入孵”到“迁出”的孵化管理与服务流程，形成集管理与服务于一体的生态圈，实现孵化过程与成果的“双管理”。 ",
               msg: "针对众创空间/孵化器空间面积较少、通常涉及到连锁式运营的..",
-              url: 'product48.png'
+              url: "product48.png"
             },
             {
               img: "el-icon-s-tools",
@@ -502,114 +488,52 @@ export default {
                 "借助移动互联网+IOT技术，重构企业服务体系，建立楼宇运营方、企业、员工、商户、第三方机构和智能化设备之间的强链接关系，让用户拥有极致的现代科技办公体验，使服务获取更便捷。并通过BiPark实现碎片化数据的集中管控、资产精细化运营，动态销控分析，最大限度盘活空间资源和服务资源。",
               msg:
                 "借助移动互联网+IOT技术，重构企业服务体系，建立楼宇运营方....",
-                url: 'product49.png'
+              url: "product49.png"
             }
           ]
         }
       ],
-      current: 0,
+      current: 0
     };
   },
 
   components: {},
 
   computed: {},
+
   methods: {
-    tabClick(index) {
-      this.current = index;
-      this.$bus.$emit('clickNavbar',this.current)
+    getCurrent() {
+      this.$bus.$on("clickNavbar", a => {
+        this.current = a;
+      });
     }
+  },
+  created() {
+    this.getCurrent()
   }
 };
 </script>
 <style scoped>
-.navbar {
-  display: flex;
-  justify-content: space-between;
+.product-info-content {
   margin: 0 auto;
   width: 1170px;
-}
-.navbar .navbar-item {
-  position: relative;
-  flex: 1;
-  margin: 20px 5px;
-  text-align: center;
-  color: #858585;
-  cursor: pointer;
-}
-.navbar .navbar-item img {
-  position: absolute;
-  bottom: -28px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: none;
-}
-.navbar .navbar-item i {
-  text-align: center;
-  font-size: 50px;
-}
-.navbar .navbar-item p {
-  padding-top: 10px;
-  font-size: 18px;
-}
-.navbar .navbar-item.active {
-  color: #2caeff;
-}
-.navbar img.active {
-  display: inline-block;
-}
-.navbar-content {
-  background-color: #f5f5f6;
-  box-shadow: inset 0px 1px 5px 0px rgba(0, 0, 0, 0.16);
-}
-.navbar-content .navbar-info {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: space-between;
-  padding: 30px 0;
-  margin: 0 auto;
-  width: 1170px;
-}
-.navbar-content .navbar-info:after {
-  content: "";
-  width: 30%;
-}
-.navbar-content .navbar-info-item {
-  display: flex;
-  justify-content: space-between;
-  margin: 15px 0;
-  padding: 15px 50px;
-  width: 30%;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.navbar-content .navbar-info-item:hover {
-  background-color: #fff;
-  transform: scale(1.1);
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.16);
-}
-.navbar-content .navbar-info-item i {
-  margin-right: 10px;
-  color: #ebebef;
-  font-size: 64px;
-  line-height: 1;
+  padding: 60px 0;
   text-align: center;
 }
-.navbar-content .navbar-info-item .navbar-info-item-title {
-  padding-bottom: 5px;
+
+.product-info-content h3 {
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 500;
+}
+.product-info-content p {
+  padding-top: 30px;
   font-size: 16px;
-  color: #000;
+  color: #666;
+  line-height: 2;
 }
-.navbar-content .navbar-info-item .navbar-info-item-msg {
-  font-size: 14px;
-  color: #999;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+.product-info-content img {
+  width: 936px;
+  margin: 30px 0;
 }
-
-
 </style>

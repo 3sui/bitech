@@ -7,7 +7,9 @@
         <h2>智慧园区产业运营与管控一体化</h2>
         <h3>解决方案提供商</h3>
       </div>
-      <div class="city"></div>
+      <div class="city">
+        <city-live/>
+      </div>
     </div>
     <div class="home-product">
       <p class="home-product-title1">产品与解决方案</p>
@@ -32,13 +34,16 @@
 import HomeVideo from "components/content/HomeVideo.vue";
 import ProductView from "components/content/ProductView.vue";
 import HomeSwipe from "components/content/HomeSwipe.vue";
+import CityLive from "components/content/CityLive.vue";
+
 
 export default {
   name: "home",
   components: {
     ProductView,
     HomeVideo,
-    HomeSwipe
+    HomeSwipe,
+    CityLive
   }
 };
 </script>
@@ -77,8 +82,10 @@ export default {
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 #home .city {
+  position: relative;
   width: 100%;
   height: 100vh;
+  z-index: -10;
 }
 
 #home .home-product {

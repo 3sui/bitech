@@ -15,20 +15,35 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [{
       path: '/',
-      component: Home
+      component: Home,
+      meta: {
+        title: '瑞谷拜特-智慧园区服务运营平台_招商管理_资产经营_决策支撑'
+      }
     },
     {
       path: '/product',
-      component: Product
+      component: Product,
+      meta: {
+        title: '产品与解决方案'
+      }
     }, {
       path: '/case',
-      component: Case
+      component: Case,
+      meta: {
+        title: '典型案例'
+      }
     }, {
       path: '/about',
-      component: About
+      component: About,
+      meta: {
+        title: '关于我们'
+      }
     }, {
       path: '/cooppartner',
-      component: CoopPartner
+      component: CoopPartner,
+      meta: {
+        title: '合作伙伴'
+      }
     },
   ]
 })
