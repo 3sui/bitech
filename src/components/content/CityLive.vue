@@ -19,7 +19,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      timer: null
+    };
   },
 
   components: {},
@@ -46,9 +48,7 @@ export default {
       let lLeft = -500;
       let lbottom = -500;
 
-      
-
-      setInterval(() => {
+      this.timer = setInterval(() => {
         if (aLeft > 3000) {
           aLeft = 0;
         } else {
@@ -58,33 +58,33 @@ export default {
 
         if (bLeft < -3000) {
           bLeft = 3000;
-        }else {
+        } else {
           bLeft = bLeft - 2;
           this.$refs.b.style.left = bLeft + "px";
         }
 
         if (cLeft < -3000) {
           cLeft = 3000;
-        }else {
+        } else {
           cLeft = cLeft - 8;
           this.$refs.c.style.left = cLeft + "px";
         }
-        
+
         if (dLeft < -3000) {
           dLeft = 3000;
-        }else {
+        } else {
           dLeft = dLeft - 2;
           this.$refs.d.style.left = dLeft + "px";
         }
         if (eLeft < -3000) {
           eLeft = 3000;
-        }else {
+        } else {
           eLeft = eLeft - 1;
           this.$refs.e.style.left = eLeft + "px";
         }
         if (fLeft < -3000) {
           fLeft = 3000;
-        }else {
+        } else {
           fLeft = fLeft - 5;
           this.$refs.f.style.left = fLeft + "px";
         }
@@ -102,19 +102,19 @@ export default {
         }
         if (iLeft < -3000) {
           iLeft = 3000;
-        }else {
+        } else {
           iLeft = iLeft - 3;
           this.$refs.i.style.left = iLeft + "px";
         }
         if (jLeft < -3000) {
           jLeft = 3000;
-        }else {
+        } else {
           jLeft = jLeft - 10;
           this.$refs.j.style.left = jLeft + "px";
         }
         if (kLeft < -3000) {
           kLeft = 3000;
-        }else {
+        } else {
           kLeft = kLeft - 9;
           this.$refs.k.style.left = kLeft + "px";
         }
@@ -127,11 +127,12 @@ export default {
           this.$refs.l.style.left = lLeft + "px";
           this.$refs.l.style.bottom = lbottom + "px";
         }
-        
-        
 
         // console.log(left);
       }, 50);
+      this.$once("hook:beforeDestroy", () => {
+        clearInterval(this.timer);
+      });
     }
   }
 };
@@ -149,21 +150,9 @@ export default {
 
 #city-live img.c {
   height: 80px;
-  left: 200px;
 }
 
 #city-live img.h {
   height: 40px;
-  left: 700px;
 }
-#city-live img.i {
-  left: 800px;
-}
-#city-live img.j {
-  left: 900px;
-}
-#city-live img.k {
-  left: 1000px;
-}
-
 </style>
